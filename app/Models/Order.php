@@ -12,6 +12,7 @@ class Order extends Model
      *
      * @var array<int, string>
      */
+    
     protected $fillable = [
         'customer_id',
         'product_name',
@@ -26,6 +27,7 @@ class Order extends Model
      *
      * @var array<string, string>
      */
+    //add filable fields
     protected $casts = [
         'quantity' => 'integer',
         'price' => 'decimal:2',

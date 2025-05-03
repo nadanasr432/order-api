@@ -9,6 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    // Add columns: customer_id, product_name, quantity, price ,status as enum ('pending', 'shipped')
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {

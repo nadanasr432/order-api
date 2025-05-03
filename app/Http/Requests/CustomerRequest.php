@@ -21,6 +21,7 @@ class CustomerRequest extends FormRequest
      */
     public function rules(): array
     {
+        //add rules for name and email
         $rules = [
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:customers,email',

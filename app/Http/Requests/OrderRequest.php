@@ -21,6 +21,7 @@ class OrderRequest extends FormRequest
      */
     public function rules(): array
     {
+        //add rules for customer_id, product_name, quantity, price, status
         $rules = [
             'customer_id' => 'required|exists:customers,id',
             'product_name' => 'required|string|max:255',

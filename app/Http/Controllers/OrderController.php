@@ -4,19 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Customer;
-use App\Http\Requests\OrderRequest;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Requests\OrderRequest;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the orders.
      */
-    public function index()
+   public function index(Request $request)
     {
-        $orders = Order::with('customer')->get();
-        return response()->json($orders);
+        $query = Order::query();
+
+        if ($request->has('status')) {
+            $query->where('status', $request->status);
+        }
+
+        return response()->json($query->get());
     }
+
 
     /**
      * Store a newly created order.
